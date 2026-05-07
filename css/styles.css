@@ -355,6 +355,16 @@ img {
   color: var(--color-link-hover);
 }
 
+#relationship-recalibration .section__inner,
+#childcare-workforce-support .section__inner {
+  text-align: center;
+}
+
+#relationship-recalibration .prose,
+#childcare-workforce-support .prose {
+  margin-inline: auto;
+}
+
 .tagline {
   margin: var(--space-lg) 0 0;
   padding: var(--space-md) 0 0;
