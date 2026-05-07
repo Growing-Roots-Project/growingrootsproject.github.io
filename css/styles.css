@@ -449,6 +449,10 @@ img {
   #farm-roots .farm-day-layout {
     grid-template-columns: 1fr minmax(0, 10.5rem);
   }
+
+  #farm-roots .farm-day-layout__figure {
+    margin-top: calc(-1 * var(--space-xl));
+  }
 }
 
 .farm-day-layout__figure {
@@ -814,17 +818,72 @@ img {
   max-width: none;
 }
 
-.cta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  justify-content: center;
-  margin-bottom: var(--space-xl);
+.cta-with-pear-layout {
+  display: grid;
+  gap: var(--space-lg);
+  align-items: start;
 }
 
-.cta-row--farm {
-  margin-top: calc(var(--space-md) * -1);
-  margin-bottom: var(--space-xl);
+.cta-with-pear-layout__column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  align-items: stretch;
+  min-width: 0;
+}
+
+#get-involved .cta-with-pear-layout__column {
+  max-width: 18rem;
+  margin-inline: auto;
+}
+
+.cta-with-pear-layout__figure {
+  margin: 0;
+  line-height: 0;
+}
+
+.cta-with-pear-layout__img {
+  width: 100%;
+  max-width: 7rem;
+  height: auto;
+  display: block;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+#get-involved .cta-with-pear-layout__column .button {
+  width: 100%;
+}
+
+@media (min-width: 48rem) {
+  #get-involved .cta-with-pear-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 7rem) minmax(0, 1fr);
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  #get-involved .cta-with-pear-layout__column {
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  #get-involved .cta-with-pear-layout__column--start {
+    justify-self: end;
+    align-items: flex-end;
+  }
+
+  #get-involved .cta-with-pear-layout__column--end {
+    justify-self: start;
+    align-items: flex-start;
+  }
+
+  #get-involved .cta-with-pear-layout__column .button {
+    max-width: 18rem;
+  }
+
+  #get-involved .cta-with-pear-layout__img {
+    margin-inline: auto;
+  }
 }
 
 .contact-block {
@@ -1199,34 +1258,52 @@ button.button:disabled,
 
 /* Footer */
 .site-footer {
-  position: relative;
-  isolation: isolate;
   padding: var(--space-lg) var(--space-md);
-  padding-bottom: calc(var(--space-xl) + 4rem);
   border-top: 1px solid var(--color-border);
   background-color: var(--color-muted);
-  overflow: hidden;
 }
 
-.site-footer::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: min(52rem, 100%);
-  height: clamp(10rem, 28vw, 18rem);
-  background: url("../images/growing-tree.png") no-repeat center bottom / contain;
-  opacity: 0.35;
-  z-index: 0;
-  pointer-events: none;
+.site-footer__layout {
+  display: grid;
+  gap: var(--space-md);
+  align-items: center;
+  justify-items: center;
+  max-width: var(--max-width);
+  margin-inline: auto;
+}
+
+@media (min-width: 48rem) {
+  .site-footer__layout {
+    grid-template-columns: minmax(0, 7rem) minmax(0, 1fr) minmax(0, 7rem);
+  }
+
+  .site-footer__inner {
+    justify-self: center;
+    width: 100%;
+  }
+}
+
+.site-footer__flank {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.site-footer__flank img {
+  width: 100%;
+  max-width: 7rem;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  opacity: 0.92;
 }
 
 .site-footer__inner {
-  position: relative;
-  z-index: 1;
   max-width: var(--max-width);
-  margin: 0 auto;
+  margin-inline: auto;
   text-align: center;
 }
 
@@ -1304,12 +1381,8 @@ button.button:disabled,
     font-size: 0.85em;
   }
 
-  .site-footer::before {
-    display: none;
-  }
-
-  .hero--texture::after {
-    display: none;
+  .site-footer__flank {
+    display: none !important;
   }
 
   .site-footer {

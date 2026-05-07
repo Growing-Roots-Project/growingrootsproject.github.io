@@ -41,10 +41,10 @@
 
       <nav class="site-nav" id="site-nav" aria-label="Primary">
         <ul class="site-nav__list">
-          <li><a href="#farm-roots">Programs</a></li>
+          <li><a href="#impact">Impact</a></li>
+          <li><a href="#farm-roots">Farm Program</a></li>
           <li><a href="#relationship-recalibration">Coaching</a></li>
           <li><a href="#childcare-workforce-support">Childcare</a></li>
-          <li><a href="#impact">Impact</a></li>
           <li><a href="#get-involved">Get Involved</a></li>
           <li><a class="site-nav__cta" href="#donate">Donate</a></li>
         </ul>
@@ -373,15 +373,25 @@
           </div>
         </div>
 
-        <div class="cta-row" role="group" aria-label="Get involved">
-          <a class="button button--ghost" href="mailto:help@growingrootsproject.org?subject=Volunteer%20inquiry">Become a Volunteer →</a>
-          <a class="button button--ghost" href="mailto:help@growingrootsproject.org?subject=Partnership%20inquiry">Partner With Us →</a>
-        </div>
-
-        <div class="cta-row cta-row--farm" role="group" aria-label="Farm program actions">
-          <a class="button button--ghost" href="mailto:help@growingrootsproject.org?subject=Host%20a%20Farm">Host a Farm →</a>
-          <a class="button button--ghost" href="mailto:help@growingrootsproject.org?subject=Sponsor%20a%20Harvest">Sponsor a Harvest →</a>
-          <a class="button button--ghost" href="mailto:help@growingrootsproject.org?subject=Farm%20Buddy%20volunteer">Farm Buddy Volunteer →</a>
+        <div class="cta-with-pear-layout">
+          <div class="cta-with-pear-layout__column cta-with-pear-layout__column--start" role="group" aria-label="Volunteer and partnership">
+            <a class="button button--ghost" href="mailto:help@growingrootsproject.org?subject=Volunteer%20inquiry">← Become a Volunteer</a>
+            <a class="button button--ghost" href="mailto:help@growingrootsproject.org?subject=Partnership%20inquiry">← Partner With Us</a>
+          </div>
+          <figure class="cta-with-pear-layout__figure" aria-hidden="true">
+            <img
+              class="cta-with-pear-layout__img"
+              src="images/fruits/pear.png"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <div class="cta-with-pear-layout__column cta-with-pear-layout__column--end" role="group" aria-label="Farm program actions">
+            <a class="button button--ghost" href="mailto:help@growingrootsproject.org?subject=Host%20a%20Farm">Host a Farm →</a>
+            <a class="button button--ghost" href="mailto:help@growingrootsproject.org?subject=Sponsor%20a%20Harvest">Sponsor a Harvest →</a>
+            <a class="button button--ghost" href="mailto:help@growingrootsproject.org?subject=Farm%20Buddy%20volunteer">Farm Buddy Volunteer →</a>
+          </div>
         </div>
 
         <div class="contact-block" id="contact" aria-labelledby="contact-heading">
@@ -397,8 +407,7 @@
             </div>
             <div class="contact-card" id="donate">
               <h4 class="contact-card__title">Donate</h4>
-              <p>Online giving link coming soon.</p>
-              <button type="button" class="button button--primary" disabled>Give online <span class="placeholder-inline">(configure)</span></button>
+              <button type="button" class="button button--primary" disabled>Coming Soon</button>
             </div>
           </div>
         </div>
@@ -407,16 +416,24 @@
   </main>
 
   <footer class="site-footer">
-    <div class="site-footer__inner">
-      <p class="site-footer__mission">
-        The Growing Roots Project is a registered 501(c)(3) public charity.<br />
-        Tax ID:
-      </p>
-      <p class="site-footer__closing">
-        Every family deserves roots deep enough to weather any storm<br />
-        and branches wide enough to reach their dreams.
-      </p>
-      <p class="site-footer__brand">&copy; <span id="footer-year"></span> The Growing Roots Project. All rights reserved.</p>
+    <div class="site-footer__layout">
+      <div class="site-footer__flank" aria-hidden="true">
+        <img src="images/fruits/strawberry.png" alt="" loading="lazy" decoding="async" />
+      </div>
+      <div class="site-footer__inner">
+        <p class="site-footer__mission">
+          The Growing Roots Project is a registered 501(c)(3) public charity.<br />
+          Tax ID:
+        </p>
+        <p class="site-footer__closing">
+          Every family deserves roots deep enough to weather any storm<br />
+          and branches wide enough to reach their dreams.
+        </p>
+        <p class="site-footer__brand">&copy; <span id="footer-year"></span> The Growing Roots Project. All rights reserved.</p>
+      </div>
+      <div class="site-footer__flank site-footer__flank--end" aria-hidden="true">
+        <img src="images/fruits/blueberry.png" alt="" loading="lazy" decoding="async" />
+      </div>
     </div>
   </footer>
 
