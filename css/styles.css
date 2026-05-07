@@ -278,29 +278,11 @@ img {
 }
 
 .hero--texture {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  padding-bottom: calc(var(--space-xl) + clamp(6rem, 18vw, 12rem));
   background:
     radial-gradient(120% 80% at 82% 0%, rgba(201, 162, 39, 0.11), transparent 55%),
     radial-gradient(95% 60% at 10% 20%, rgba(27, 115, 80, 0.14), transparent 52%),
     var(--color-bg);
   border-bottom: 1px solid var(--color-border);
-}
-
-.hero--texture::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: min(48rem, 100%);
-  height: clamp(8rem, 22vw, 14rem);
-  background: url("../images/growing-tree.png") no-repeat center bottom / contain;
-  opacity: 0.32;
-  z-index: 0;
-  pointer-events: none;
 }
 
 .hero__inner {
@@ -322,14 +304,6 @@ img {
   font-weight: 600;
   color: var(--color-ink-soft);
   line-height: 1.5;
-}
-
-.hero__support {
-  margin: var(--space-lg) auto 0;
-  max-width: 42rem;
-  font-size: 1.0625rem;
-  color: var(--color-ink-soft);
-  line-height: 1.65;
 }
 
 .eyebrow {
@@ -417,62 +391,212 @@ img {
   margin-bottom: 0;
 }
 
-.benefits-grid {
-  list-style: none;
+.farm-roots-intro-layout {
+  display: grid;
+  gap: var(--space-lg);
+  align-items: start;
+  margin-bottom: var(--space-lg);
+}
+
+@media (min-width: 48rem) {
+  .farm-roots-intro-layout {
+    grid-template-columns: minmax(0, 14rem) 1fr;
+  }
+
+  .farm-roots-intro-layout__img {
+    margin-inline: 0;
+  }
+}
+
+.farm-roots-intro-layout__figure {
+  margin: 0;
+  line-height: 0;
+}
+
+.farm-roots-intro-layout__img {
+  width: 100%;
+  max-width: 14rem;
+  height: auto;
+  display: block;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+.farm-roots-intro-layout__text {
+  min-width: 0;
+}
+
+#farm-roots .farm-roots-intro-layout .section__intro {
+  max-width: none;
+}
+
+.farm-day-layout {
+  display: grid;
+  gap: var(--space-lg);
+  align-items: start;
+  margin-bottom: var(--space-lg);
+}
+
+@media (min-width: 48rem) {
+  .farm-day-layout {
+    grid-template-columns: 1fr minmax(0, 14rem);
+  }
+
+  .farm-day-layout__img {
+    margin-inline: 0;
+  }
+
+  #farm-roots .farm-day-layout {
+    grid-template-columns: 1fr minmax(0, 10.5rem);
+  }
+}
+
+.farm-day-layout__figure {
+  margin: 0;
+  line-height: 0;
+}
+
+.farm-day-layout__img {
+  width: 100%;
+  max-width: 14rem;
+  height: auto;
+  display: block;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+#farm-roots .farm-day-layout__img {
+  max-width: 10.5rem;
+}
+
+#farm-roots .farm-day-layout .program-list {
+  max-width: none;
+  margin-bottom: 0;
+}
+
+.benefits-accordion {
   margin: 0 0 var(--space-lg);
-  padding: 0;
   display: grid;
   gap: var(--space-md);
   grid-template-columns: 1fr;
 }
 
 @media (min-width: 40rem) {
-  .benefits-grid {
+  .benefits-accordion {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.benefits-grid__item {
+.benefits-accordion__item {
   margin: 0;
-  padding: var(--space-md);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
-  color: var(--color-ink-soft);
-  line-height: 1.55;
+  overflow: hidden;
 }
 
-/* Program pillars */
-.pillar {
-  margin: 0 0 var(--space-lg);
-  padding: 0 0 var(--space-lg);
-  border-bottom: 1px solid var(--color-border);
-  max-width: 50rem;
+.benefits-accordion__item[open] {
+  border-color: rgba(27, 115, 80, 0.35);
+  box-shadow: 0 4px 16px rgba(27, 115, 80, 0.08), var(--shadow-sm);
 }
 
-.pillar:last-of-type {
-  border-bottom: 0;
-  margin-bottom: var(--space-md);
-  padding-bottom: 0;
+.benefits-accordion__summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  font-weight: inherit;
 }
 
-.pillar h3 {
-  margin: 0 0 var(--space-xs);
+.benefits-accordion__summary::-webkit-details-marker {
+  display: none;
+}
+
+.benefits-accordion__summary::marker {
+  content: "";
+}
+
+.benefits-accordion__summary-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+
+.benefits-accordion__title {
+  display: block;
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   color: var(--color-green);
+  line-height: 1.25;
 }
 
-.pillar p {
-  margin: 0;
+.benefits-accordion__title strong {
+  font-weight: 600;
+}
+
+.benefits-accordion__lead {
+  display: block;
+  font-size: 0.98rem;
+  line-height: 1.55;
   color: var(--color-ink-soft);
+}
+
+.benefits-accordion__chevron {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.2rem;
+  display: grid;
+  place-items: center;
+  color: var(--color-green);
+  transition: transform 0.2s ease;
+}
+
+.benefits-accordion__chevron::before {
+  content: "";
+  display: block;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  border-color: currentColor;
+  transform: rotate(-45deg);
+}
+
+.benefits-accordion__item[open] .benefits-accordion__chevron {
+  transform: rotate(90deg);
+}
+
+.benefits-accordion__panel {
+  padding: 0 var(--space-md) var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.benefits-accordion__panel p {
+  margin: var(--space-sm) 0 0;
+  color: var(--color-ink-soft);
+  font-size: 1rem;
+  line-height: 1.58;
+}
+
+.benefits-accordion__panel p:last-child {
+  margin-bottom: 0;
 }
 
 .callout--accent {
   background: rgba(27, 115, 80, 0.09);
   border-color: rgba(27, 115, 80, 0.22);
   margin-top: var(--space-md);
+}
+
+#farm-roots .section__inner > .callout:first-child {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
 }
 
 .callout--centered {
@@ -543,6 +667,18 @@ img {
   box-shadow: var(--shadow-sm);
 }
 
+/* Quote card anchored to end of row (paired with default left-aligned card) */
+.testimonial--end {
+  margin-inline-start: auto;
+}
+
+.testimonial--end blockquote {
+  border-left: none;
+  border-right: 4px solid var(--color-accent);
+  padding: var(--space-md) var(--space-lg) var(--space-md) var(--space-md);
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+
 .testimonial blockquote p {
   margin: 0;
   font-size: 1.125rem;
@@ -559,6 +695,49 @@ img {
 
 .testimonial--spaced {
   margin-top: var(--space-lg);
+}
+
+/* Impact: testimonials */
+.impact-layout__quotes {
+  min-width: 0;
+}
+
+/* Impact testimonials (below showcase) */
+#impact .impact-layout__quotes > .testimonial--spaced:first-child {
+  margin-top: 0;
+}
+
+/* Impact: keep both quote cards visually grouped */
+#impact #impact-heading + figure.testimonial--end {
+  margin-top: var(--space-md);
+}
+
+#impact .testimonial__cite {
+  margin-top: var(--space-xs);
+}
+
+#impact .testimonial blockquote {
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-sm);
+}
+
+#impact .testimonial:not(.testimonial--end) blockquote {
+  padding-right: var(--space-md);
+  padding-left: var(--space-lg);
+}
+
+#impact .testimonial--end blockquote {
+  padding-right: var(--space-lg);
+  padding-left: var(--space-md);
+}
+
+/* Tighter handoff from Impact into Farm Roots banner */
+#impact.section {
+  padding-bottom: var(--space-md);
+}
+
+#farm-roots.section {
+  padding-top: var(--space-md);
 }
 
 /* Get involved */
@@ -582,6 +761,57 @@ img {
 
 .ways-list li:last-child {
   margin-bottom: 0;
+}
+
+/* Get involved: tree beside Ways to Help list */
+.get-involved-ways {
+  display: grid;
+  gap: var(--space-lg);
+  align-items: start;
+  margin-bottom: var(--space-lg);
+}
+
+@media (min-width: 48rem) {
+  .get-involved-ways {
+    grid-template-columns: minmax(0, 14rem) 1fr;
+  }
+
+  #get-involved .get-involved-ways .ways-heading {
+    margin-top: 0;
+  }
+}
+
+.get-involved-ways__visual {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.get-involved-ways__donate {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.get-involved-ways__figure {
+  margin: 0;
+  line-height: 0;
+}
+
+.get-involved-ways__img {
+  width: 100%;
+  max-width: 16rem;
+  height: auto;
+  display: block;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+#get-involved .get-involved-ways .ways-list {
+  max-width: none;
 }
 
 .cta-row {
@@ -747,10 +977,6 @@ img {
   font-weight: 600;
   margin: 0 0 var(--space-sm);
   color: var(--color-green);
-}
-
-#programs-heading {
-  text-align: center;
 }
 
 .section__head {
