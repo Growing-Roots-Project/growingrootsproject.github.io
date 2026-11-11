@@ -998,13 +998,6 @@ img {
   min-height: 0;
 }
 
-/* One tile only: it stands still in the middle, with nothing to scroll. */
-.showcase__marquee-track--single {
-  width: 100%;
-  justify-content: center;
-  animation: none;
-}
-
 @keyframes showcaseMarquee {
   from {
     transform: translateX(0);
